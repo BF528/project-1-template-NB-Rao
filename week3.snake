@@ -16,7 +16,7 @@ rule all:
 rule verse:
     input:
         bam='results/{sample}.Aligned.out.bam',
-        gtf='results/m39_GA.gtf'
+        gtf='results/gencode.vM33.primary_assembly.annotation.gtf'
     output:
         exon='results/{sample}.exon.txt'
     params:
@@ -26,6 +26,7 @@ rule verse:
         '''
         verse -S -a {input.gtf} -o {params.prefix} {input.bam}
         '''
+
 
 rule concat_df:
   input:
@@ -39,7 +40,7 @@ rule concat_df:
 
 rule parse_gtf:
     input:
-        gtf = 'results/m39_GA.gtf'
+        gtf = 'results/gencode.vM33.primary_assembly.annotation.gtf'
     output:
         map = 'results/full_genemap.csv'
     shell:
@@ -55,6 +56,3 @@ rule filter_counts:
     shell:
         '''
         python filter_cts_mat.py -i {input.matrix} -o {output.filter}
-        '''
-
-
