@@ -4,25 +4,31 @@ sample_data = expand('{sample}{rep}_R{number}.fastq.gz', sample=['AD', 'P0', 'P4
 # your snakemake rule should produce the output from MultiQC and if you link your rules inputs
 # and outputs, you should only have one file listed in your rule all
 rule all:
-    input:
-        "/projectnb/bf528/students/neharao/project_1_rnaseq/results/multiqc_report.html"
+	input:
+		'results/multiqc_report.html'
 
 # make sure to read the fastqc manual to get a sense for appropriate running command
 # we have given you the basic structure of the snakemake rule to get you used to how they
 # are structured
 rule fastqc:
-    input:
-        fastq = "/projectnb/bf528/students/neharao/project_1_rnaseq/full_files/{sample}{rep}_R{number}.fastq.gz"
-    output:
-        fastqc = "/projectnb/bf528/students/neharao/project_1_rnaseq/results/week_1/{sample}{rep}_R{number}_fastqc.html"
-    shell:
-        "fastqc {input} -o /projectnb/bf528/students/neharao/project_1_rnaseq/results/week_1"
+	input:
+		fastq = 'samples/full_files/{sample}{rep}_R{number}.fastq.gz',
+	output:
+		fastqc = 'results/{sample}{rep}_R{number}_fastqc.html'
+	params:
+		outdir = 'results/'
+	shell:
+		'''fastqc {input.fastq} -o {params.outdir}
+		'''
 
 # remember that you want multiqc to run only after fastqc has run on all the files
 rule multiqc:
-    input:
-        expand("/projectnb/bf528/students/neharao/project_1_rnaseq/results/week_1/{sample}{rep}_R{number}_fastqc.html', sample=['AD', 'P0', 'P4', 'P7'],rep = ['rep1', 'rep2'],number=[1,2])
-    output:
-        "/projectnb/bf528/students/neharao/project_1_rnaseq/results/week_1/multiqc_report.html"
-    shell:
-        "multiqc -o /projectnb/bf528/students/neharao/project_1_rnaseq/results/week_1 /projectnb/bf528/students/neharao/project_1_rnaseq/full_files/"
+	input:
+		fastqc = expand('results/{sample}{rep}_R{number}_fastqc.html', sample=['AD', 'P0', 'P4', 'P7'],rep = ['rep1', 'rep2'],number=[1,2])
+	output:
+		multiqc = 'results/multiqc_report.html'
+	params:
+		outdir = 'results/'
+	shell:
+		'''multiqc -f {params.outdir} -o {params.outdir}
+		'''
