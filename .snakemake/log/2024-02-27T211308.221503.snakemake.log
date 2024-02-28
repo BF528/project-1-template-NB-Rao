@@ -1,0 +1,270 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided remote nodes: 10
+Job stats:
+job                  count
+-----------------  -------
+all                      1
+get_m39                  1
+get_m39_gtf              1
+samtools_flagstat       16
+star                    16
+total                   35
+
+Select jobs to execute...
+Execute 10 jobs...
+
+[Tue Feb 27 21:13:08 2024]
+rule star:
+    input: samples/full_files/P0rep1_R1.fastq.gz, results/m39_star
+    output: results/P0rep1_R1Aligned.out.bam
+    jobid: 5
+    reason: Missing output files: results/P0rep1_R1Aligned.out.bam
+    wildcards: sample=P0rep, rep=1, number=1
+    threads: 8
+    resources: tmpdir=<TBD>
+
+Submitted job 5 with external jobid 'Your job 5008991 ("snakejob.star.5.sh") has been submitted'.
+
+[Tue Feb 27 21:13:08 2024]
+rule star:
+    input: samples/full_files/ADrep2_R1.fastq.gz, results/m39_star
+    output: results/ADrep2_R1Aligned.out.bam
+    jobid: 3
+    reason: Missing output files: results/ADrep2_R1Aligned.out.bam
+    wildcards: sample=ADrep, rep=2, number=1
+    threads: 8
+    resources: tmpdir=<TBD>
+
+Submitted job 3 with external jobid 'Your job 5008992 ("snakejob.star.3.sh") has been submitted'.
+
+[Tue Feb 27 21:13:08 2024]
+rule star:
+    input: samples/full_files/P7rep2_R1.fastq.gz, results/m39_star
+    output: results/P7rep2_R1Aligned.out.bam
+    jobid: 15
+    reason: Missing output files: results/P7rep2_R1Aligned.out.bam
+    wildcards: sample=P7rep, rep=2, number=1
+    threads: 8
+    resources: tmpdir=<TBD>
+
+Submitted job 15 with external jobid 'Your job 5008993 ("snakejob.star.15.sh") has been submitted'.
+
+[Tue Feb 27 21:13:08 2024]
+rule star:
+    input: samples/full_files/P4rep2_R1.fastq.gz, results/m39_star
+    output: results/P4rep2_R1Aligned.out.bam
+    jobid: 11
+    reason: Missing output files: results/P4rep2_R1Aligned.out.bam
+    wildcards: sample=P4rep, rep=2, number=1
+    threads: 8
+    resources: tmpdir=<TBD>
+
+Submitted job 11 with external jobid 'Your job 5008994 ("snakejob.star.11.sh") has been submitted'.
+
+[Tue Feb 27 21:13:09 2024]
+rule star:
+    input: samples/full_files/P7rep1_R1.fastq.gz, results/m39_star
+    output: results/P7rep1_R1Aligned.out.bam
+    jobid: 13
+    reason: Missing output files: results/P7rep1_R1Aligned.out.bam
+    wildcards: sample=P7rep, rep=1, number=1
+    threads: 8
+    resources: tmpdir=<TBD>
+
+Submitted job 13 with external jobid 'Your job 5008995 ("snakejob.star.13.sh") has been submitted'.
+
+[Tue Feb 27 21:13:09 2024]
+rule star:
+    input: samples/full_files/P4rep1_R1.fastq.gz, results/m39_star
+    output: results/P4rep1_R1Aligned.out.bam
+    jobid: 9
+    reason: Missing output files: results/P4rep1_R1Aligned.out.bam
+    wildcards: sample=P4rep, rep=1, number=1
+    threads: 8
+    resources: tmpdir=<TBD>
+
+Submitted job 9 with external jobid 'Your job 5008996 ("snakejob.star.9.sh") has been submitted'.
+
+[Tue Feb 27 21:13:09 2024]
+rule star:
+    input: samples/full_files/ADrep2_R2.fastq.gz, results/m39_star
+    output: results/ADrep2_R2Aligned.out.bam
+    jobid: 4
+    reason: Missing output files: results/ADrep2_R2Aligned.out.bam
+    wildcards: sample=ADrep, rep=2, number=2
+    threads: 8
+    resources: tmpdir=<TBD>
+
+Submitted job 4 with external jobid 'Your job 5008997 ("snakejob.star.4.sh") has been submitted'.
+
+[Tue Feb 27 21:13:09 2024]
+rule star:
+    input: samples/full_files/P4rep2_R2.fastq.gz, results/m39_star
+    output: results/P4rep2_R2Aligned.out.bam
+    jobid: 12
+    reason: Missing output files: results/P4rep2_R2Aligned.out.bam
+    wildcards: sample=P4rep, rep=2, number=2
+    threads: 8
+    resources: tmpdir=<TBD>
+
+Submitted job 12 with external jobid 'Your job 5008998 ("snakejob.star.12.sh") has been submitted'.
+
+[Tue Feb 27 21:13:09 2024]
+rule star:
+    input: samples/full_files/ADrep1_R2.fastq.gz, results/m39_star
+    output: results/ADrep1_R2Aligned.out.bam
+    jobid: 2
+    reason: Missing output files: results/ADrep1_R2Aligned.out.bam
+    wildcards: sample=ADrep, rep=1, number=2
+    threads: 8
+    resources: tmpdir=<TBD>
+
+Submitted job 2 with external jobid 'Your job 5008999 ("snakejob.star.2.sh") has been submitted'.
+
+[Tue Feb 27 21:13:09 2024]
+rule star:
+    input: samples/full_files/P4rep1_R2.fastq.gz, results/m39_star
+    output: results/P4rep1_R2Aligned.out.bam
+    jobid: 10
+    reason: Missing output files: results/P4rep1_R2Aligned.out.bam
+    wildcards: sample=P4rep, rep=1, number=2
+    threads: 8
+    resources: tmpdir=<TBD>
+
+Submitted job 10 with external jobid 'Your job 5009000 ("snakejob.star.10.sh") has been submitted'.
+[Tue Feb 27 21:18:48 2024]
+Error in rule star:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 13
+    input: samples/full_files/P7rep1_R1.fastq.gz, results/m39_star
+    output: results/P7rep1_R1Aligned.out.bam
+    shell:
+        
+        STAR --runThreadN 8              --genomeDir results/m39_star/              --readFilesCommand zcat              --readFilesIn samples/full_files/P7rep1_R1.fastq.gz              --outSAMtype BAM Unsorted              --outFileNamePrefix results//P7rep1subsample_R1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    external_jobid: Your job 5008995 ("snakejob.star.13.sh") has been submitted
+
+[Tue Feb 27 21:19:18 2024]
+Error in rule star:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 5
+    input: samples/full_files/P0rep1_R1.fastq.gz, results/m39_star
+    output: results/P0rep1_R1Aligned.out.bam
+    shell:
+        
+        STAR --runThreadN 8              --genomeDir results/m39_star/              --readFilesCommand zcat              --readFilesIn samples/full_files/P0rep1_R1.fastq.gz              --outSAMtype BAM Unsorted              --outFileNamePrefix results//P0rep1subsample_R1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    external_jobid: Your job 5008991 ("snakejob.star.5.sh") has been submitted
+
+[Tue Feb 27 21:19:18 2024]
+Error in rule star:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 3
+    input: samples/full_files/ADrep2_R1.fastq.gz, results/m39_star
+    output: results/ADrep2_R1Aligned.out.bam
+    shell:
+        
+        STAR --runThreadN 8              --genomeDir results/m39_star/              --readFilesCommand zcat              --readFilesIn samples/full_files/ADrep2_R1.fastq.gz              --outSAMtype BAM Unsorted              --outFileNamePrefix results//ADrep2subsample_R1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    external_jobid: Your job 5008992 ("snakejob.star.3.sh") has been submitted
+
+[Tue Feb 27 21:19:18 2024]
+Error in rule star:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 15
+    input: samples/full_files/P7rep2_R1.fastq.gz, results/m39_star
+    output: results/P7rep2_R1Aligned.out.bam
+    shell:
+        
+        STAR --runThreadN 8              --genomeDir results/m39_star/              --readFilesCommand zcat              --readFilesIn samples/full_files/P7rep2_R1.fastq.gz              --outSAMtype BAM Unsorted              --outFileNamePrefix results//P7rep2subsample_R1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    external_jobid: Your job 5008993 ("snakejob.star.15.sh") has been submitted
+
+[Tue Feb 27 21:19:18 2024]
+Error in rule star:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 11
+    input: samples/full_files/P4rep2_R1.fastq.gz, results/m39_star
+    output: results/P4rep2_R1Aligned.out.bam
+    shell:
+        
+        STAR --runThreadN 8              --genomeDir results/m39_star/              --readFilesCommand zcat              --readFilesIn samples/full_files/P4rep2_R1.fastq.gz              --outSAMtype BAM Unsorted              --outFileNamePrefix results//P4rep2subsample_R1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    external_jobid: Your job 5008994 ("snakejob.star.11.sh") has been submitted
+
+[Tue Feb 27 21:19:18 2024]
+Error in rule star:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 9
+    input: samples/full_files/P4rep1_R1.fastq.gz, results/m39_star
+    output: results/P4rep1_R1Aligned.out.bam
+    shell:
+        
+        STAR --runThreadN 8              --genomeDir results/m39_star/              --readFilesCommand zcat              --readFilesIn samples/full_files/P4rep1_R1.fastq.gz              --outSAMtype BAM Unsorted              --outFileNamePrefix results//P4rep1subsample_R1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    external_jobid: Your job 5008996 ("snakejob.star.9.sh") has been submitted
+
+[Tue Feb 27 21:19:18 2024]
+Error in rule star:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 4
+    input: samples/full_files/ADrep2_R2.fastq.gz, results/m39_star
+    output: results/ADrep2_R2Aligned.out.bam
+    shell:
+        
+        STAR --runThreadN 8              --genomeDir results/m39_star/              --readFilesCommand zcat              --readFilesIn samples/full_files/ADrep2_R2.fastq.gz              --outSAMtype BAM Unsorted              --outFileNamePrefix results//ADrep2subsample_R2
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    external_jobid: Your job 5008997 ("snakejob.star.4.sh") has been submitted
+
+[Tue Feb 27 21:19:18 2024]
+Error in rule star:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 12
+    input: samples/full_files/P4rep2_R2.fastq.gz, results/m39_star
+    output: results/P4rep2_R2Aligned.out.bam
+    shell:
+        
+        STAR --runThreadN 8              --genomeDir results/m39_star/              --readFilesCommand zcat              --readFilesIn samples/full_files/P4rep2_R2.fastq.gz              --outSAMtype BAM Unsorted              --outFileNamePrefix results//P4rep2subsample_R2
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    external_jobid: Your job 5008998 ("snakejob.star.12.sh") has been submitted
+
+[Tue Feb 27 21:19:18 2024]
+Error in rule star:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 10
+    input: samples/full_files/P4rep1_R2.fastq.gz, results/m39_star
+    output: results/P4rep1_R2Aligned.out.bam
+    shell:
+        
+        STAR --runThreadN 8              --genomeDir results/m39_star/              --readFilesCommand zcat              --readFilesIn samples/full_files/P4rep1_R2.fastq.gz              --outSAMtype BAM Unsorted              --outFileNamePrefix results//P4rep1subsample_R2
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    external_jobid: Your job 5009000 ("snakejob.star.10.sh") has been submitted
+
+[Tue Feb 27 21:19:48 2024]
+Error in rule star:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 2
+    input: samples/full_files/ADrep1_R2.fastq.gz, results/m39_star
+    output: results/ADrep1_R2Aligned.out.bam
+    shell:
+        
+        STAR --runThreadN 8              --genomeDir results/m39_star/              --readFilesCommand zcat              --readFilesIn samples/full_files/ADrep1_R2.fastq.gz              --outSAMtype BAM Unsorted              --outFileNamePrefix results//ADrep1subsample_R2
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    external_jobid: Your job 5008999 ("snakejob.star.2.sh") has been submitted
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-02-27T211308.221503.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
