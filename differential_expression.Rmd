@@ -13,36 +13,35 @@ library(tidyverse)
 # Read in the counts matrix
 counts_matrix <- read.csv("/projectnb/bf528/students/neharao/project-1-template-NB-Rao/results/full_filtered_counts_matrix.csv")
 
-# Remove the first column from counts_matrix
-counts_matrix <- counts_matrix[, -1]
-
 # Recreate the coldata data frame
-coldata <- data.frame(
-  sample = colnames(counts_matrix),
-  timepoint = c(rep("AD", 2), rep("P0", 2), rep("P4", 2), rep("P7", 2)) 
-)
+coldata <- read.csv("/projectnb/bf528/students/neharao/project-1-template-NB-Rao/results/full_filtered_counts_matrix.csv")
+
+# Extracting timepoint from sample names
+coldata$timepoint <- substr(coldata$sample, 1, 2)
+
+# Print the first few rows of coldata to verify
+print(head(coldata))
 
 # Create DESeqDataSet
-dds <- DESeqDataSetFromMatrix(countData = counts_matrix,
-                              colData = coldata,
-                              design = ~ timepoint)
+dds <- DESeqDataSetFromMatrix(countData = counts_matrix, colData = coldata, design = ~ timepoint)
 
 # Perform differential expression analysis
 dds <- DESeq(dds)
 
-# Extract results
-results <- results(dds, contrast = c("timepoint", "P0", "AD"))
+# Contrast for differential expression analysis (AD vs p0)
+contrast <- c("timepoint", "AD", "P0")
 
-# Read in gene ID to gene name mapping
-gene_mapping <- read.csv("/projectnb/bf528/students/neharao/project-1-template-NB-Rao/results/full_genemap.csv")
+# DE Results for the specified contrast
+results_AD_P0 <- results(dds, contrast = contrast)
 
-library(tibble)
+# DE Results in a tibble
+results <- as_tibble(results_AD_P0)
+results$gene_id <- rownames(results_AD_P0)
+results <- results %>% select(gene_id, everything())
 
-# Convert row names to a column in gene_mapping
-gene_mapping$gene_id <- rownames(gene_mapping)
+# Reading gene map data
+gene_map <- read.csv("/projectnb/bf528/students/neharao/project-1-template-NB-Rao/results/full_genemap.csv", header = TRUE)
 
-# Perform the left join
-results_with_names <- left_join(results_df, gene_mapping, by = "gene_id")
-
-# Save results with gene names
-write.csv(results_with_names, "/projectnb/bf528/students/neharao/project-1-template-NB-Rao/results/differential_expression_results.csv", row.names = FALSE)
+#Joining gene names to results tibble
+results <- left_join(results, gene_map, by = "gene_id")
+results <- results %>% select(gene_id, gene_name, everything())
